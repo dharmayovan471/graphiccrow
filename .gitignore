@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# Media that isn't referenced by index.html.
+#
+# The assets folder holds ~700MB of raw/source footage that the site never
+# loads. Three of those files are over GitHub's hard 100MB per-file limit
+# (REEL WITH MUSIC.mp4 129MB, Kaipunyam_Reel_Final.mp4 117MB, NS INVITE 65MB),
+# so committing them would make the push fail outright.
+#
+# Strategy: ignore every video, then explicitly un-ignore the two the site
+# actually plays. Keep those originals backed up outside the repo.
+# ---------------------------------------------------------------------------
+*.mp4
+*.mov
+*.avi
+!assets/INTRO.mp4
+!assets/video/garlic-mix-zepto.mp4
+
+# Source archives / design deliverables — not web assets
+*.zip
+*.rar
+*.7z
+*.psd
+*.ai
+*.prproj
+
+# Superseded slider set (replaced by assets/slider_new, nothing references it)
+assets/slider/
+
+# OS / editor noise
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/

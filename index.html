@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graphic Crow — Brand Design Consultancy</title>
+  <meta name="description"
+    content="On-demand brand and design partner. Project-based services and flexible monthly design subscriptions for startups, brands, and agencies.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Canonical is the www host: the naked domain has no SSL certificate and
+       redirects here, so https://www.graphiccrow.com is the only address that
+       serves the site directly. -->
+  <link rel="canonical" href="https://www.graphiccrow.com/">
+  <meta name="theme-color" content="#4285F4">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / social sharing previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Graphic Crow">
+  <meta property="og:url" content="https://www.graphiccrow.com/">
+  <meta property="og:title" content="Graphic Crow — Brand Design Consultancy">
+  <meta property="og:description"
+    content="On-demand brand and design partner. Project-based services and flexible monthly design subscriptions for startups, brands, and agencies.">
+  <meta property="og:image" content="https://www.graphiccrow.com/assets/logo.png">
+  <meta property="og:image:alt" content="Graphic Crow — Brand Design Consultancy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Graphic Crow — Brand Design Consultancy">
+  <meta name="twitter:description"
+    content="On-demand brand and design partner. Project-based services and flexible monthly design subscriptions for startups, brands, and agencies.">
+  <meta name="twitter:image" content="https://www.graphiccrow.com/assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Bump ?v= whenever styles.css / script.js change, so browsers fetch the
+       new file instead of serving a stale cached copy. -->
+  <link rel="stylesheet" href="styles.css?v=10">
+</head>
+
+<body>
+
+  <!-- ============ ICON SPRITE ============ -->
+  <!-- position:absolute + zero size (not display:none) — gradients defined in a
+       display:none SVG can fail to resolve for <use> elements elsewhere on the
+       page in some browsers, which was silently dropping the crow's wing gradient. -->
+  <svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+    <defs>
+      <symbol id="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="8.4" cy="10.2" r="1.1" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="7.3" r="1.1" fill="currentColor" stroke="none" />
+        <circle cx="15.6" cy="10.2" r="1.1" fill="currentColor" stroke="none" />
+        <path d="M7.8 14.8c1 1.3 2.5 2 4.2 2 2 0 2.2-1.4 1.3-2.3-.7-.7-.2-1.8.9-1.8H16a3.2 3.2 0 0 0 0-6.4" />
+      </symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12,3 21,8 12,13 3,8" />
+        <polyline points="3,13 12,18 21,13" />
+        <polyline points="3,17.5 12,22.3 21,17.5" />
+      </symbol>
+      <symbol id="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.1-4.5A8.4 8.4 0 1 1 21 11.5Z" />
+      </symbol>
+      <symbol id="icon-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="12" r="2.2" />
+        <circle cx="17.5" cy="5.5" r="2.2" />
+        <circle cx="17.5" cy="18.5" r="2.2" />
+        <path d="M8 10.8 15.5 7M8 13.2 15.5 17" />
+      </symbol>
+      <symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="12" rx="2" />
+        <path d="M8 20h8M12 16v4" />
+      </symbol>
+      <symbol id="icon-presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 4h18" />
+        <path d="M5 4v9a7 7 0 0 0 14 0V4" />
+        <path d="M12 17v4M9 21h6" />
+      </symbol>
+      <symbol id="icon-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+        <path d="M3 8l9 5 9-5M12 13v8" />
+      </symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22Z" />
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      </symbol>
+      <symbol id="icon-film" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4" />
+      </symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13,2 4,14 11,14 10,22 20,10 13,10" />
+      </symbol>
+      <symbol id="icon-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="6" width="13" height="12" rx="2" />
+        <path d="M16 10.2 21 7v10l-5-3.2Z" />
+      </symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1.4" />
+        <rect x="14" y="3" width="7" height="7" rx="1.4" />
+        <rect x="3" y="14" width="7" height="7" rx="1.4" />
+        <rect x="14" y="14" width="7" height="7" rx="1.4" />
+      </symbol>
+      <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="7" width="18" height="13" rx="2" />
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M3 12h18" />
+      </symbol>
+      <symbol id="icon-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 12 12 2h8v8L10 20a2 2 0 0 1-2.8 0l-5.2-5.2A2 2 0 0 1 2 12Z" />
+        <circle cx="15.5" cy="6.5" r="1.3" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="icon-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9V3h12v6" />
+        <rect x="4" y="9" width="16" height="8" rx="1.5" />
+        <path d="M6 17v4h12v-4" />
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none" />
+        <circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none" />
+        <path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6H19a2 2 0 0 0 2-1.6L22 8H6" />
+      </symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <circle cx="8.5" cy="9.5" r="1.6" />
+        <path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L4 19" />
+      </symbol>
+      <symbol id="icon-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+      </symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" />
+        <circle cx="12" cy="13.5" r="3.5" />
+      </symbol>
+      <symbol id="icon-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4-3-2 2h-4Z" />
+      </symbol>
+      <symbol id="icon-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="6" width="12" height="12" rx="2" />
+        <rect x="9" y="9" width="6" height="6" />
+        <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3.5 2" />
+      </symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="5.5" />
+        <path d="M8.5 13 7 21l5-2.5L17 21l-1.5-8" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="3.6" />
+        <path d="M4.8 20a7.2 7.2 0 0 1 14.4 0" />
+      </symbol>
+      <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M8 12.3 10.7 15 16 9" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12" />
+        <path d="M7.5 10.5 12 15l4.5-4.5" />
+        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+      </symbol>
+      <symbol id="icon-infinity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M18.2 8.5a3.5 3.5 0 1 0 0 7c-1.9 0-3.6-1.5-6.2-4.5-2.6 3-4.3 4.5-6.2 4.5a3.5 3.5 0 1 1 0-7c1.9 0 3.6 1.5 6.2 4.5 2.6-3 4.3-4.5 6.2-4.5Z" />
+      </symbol>
+      <symbol id="icon-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6a2 2 0 0 1 2-2h4l2 2.5h8A2 2 0 0 1 21 9v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+      </symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 15 15 9" />
+        <path d="M10 6.5 12 4.5a4 4 0 1 1 5.5 5.5L15.5 12" />
+        <path d="M14 17.5 12 19.5a4 4 0 1 1-5.5-5.5L8.5 12" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="8" r="3.2" />
+        <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+        <path d="M16 5.5a3.2 3.2 0 0 1 0 6.2" />
+        <path d="M18 14.2a6.4 6.4 0 0 1 4 5.8" />
+      </symbol>
+      <symbol id="icon-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2c3 1 5.5 4 5.5 8.5C17.5 15 14 19 12 22c-2-3-5.5-7-5.5-11.5C6.5 6 9 3 12 2Z" />
+        <circle cx="12" cy="10" r="2" />
+        <path d="M7 16l-3 3M17 16l3 3" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M6.5 3h3l1.5 4-2 1.8a13 13 0 0 0 6.2 6.2l1.8-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z" />
+      </symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6,9 12,15 18,9" />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="3" />
+        <circle cx="8" cy="8.4" r="1" fill="currentColor" stroke="none" />
+        <path d="M8 11v7M12 18v-4.3a2 2 0 0 1 4 0V18M12 11v7" />
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="topbar" aria-hidden="true">
+    <div class="marquee-strip-track">
+      <span class="marquee-group">
+        <span class="marquee-item">Welcome to Graphic Crow</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Brand Strategy</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Logo Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Brand Identity</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Graphic Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Social Media Creatives</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Digital Marketing</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Print Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Packaging Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Brochures</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Catalogues</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Motion Graphics</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Video Editing</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Reels &amp; Shorts</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Website Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">UI/UX Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Creative Consultancy</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Corporate Branding</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Premium Print Solutions</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Visual Storytelling</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Creative Excellence</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Your Brand, Our Creativity</span><span class="marquee-sep">•</span>
+      </span>
+      <span class="marquee-group">
+        <span class="marquee-item">Welcome to Graphic Crow</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Brand Strategy</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Logo Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Brand Identity</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Graphic Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Social Media Creatives</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Digital Marketing</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Print Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Packaging Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Brochures</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Catalogues</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Motion Graphics</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Video Editing</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Reels &amp; Shorts</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Website Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">UI/UX Design</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Creative Consultancy</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Corporate Branding</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Premium Print Solutions</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Visual Storytelling</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Creative Excellence</span><span class="marquee-sep">•</span>
+        <span class="marquee-item">Your Brand, Our Creativity</span><span class="marquee-sep">•</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="assets/logo.png" alt="Graphic Crow — Brand Design Consultancy" class="nav-logo" width="159"
+          height="70">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <div class="nav-dropdown" id="servicesDropdown">
+          <a href="#what-we-do" class="nav-item-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            <svg class="icon-sm">
+              <use href="#icon-briefcase" />
+            </svg> Our Services
+            <svg class="icon-sm nav-caret">
+              <use href="#icon-chevron-down" />
+            </svg>
+          </a>
+          <div class="mega-menu" role="menu">
+            <div class="mega-grid">
+              <a href="#services" data-svc-filter="branding" class="mega-item accent-yellow" role="menuitem">
+                <span class="mega-icon"><img src="assets/Icons/Asset 14.png" alt=""></span>
+                <span class="mega-text">
+                  <strong>Branding</strong>
+                  <small>Logo Design, Brand Identity &amp; Consulting</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="e-commerce" class="mega-item accent-green" role="menuitem">
+                <span class="mega-icon ring"><svg class="icon"><use href="#icon-cart" /></svg></span>
+                <span class="mega-text">
+                  <strong>E-commerce</strong>
+                  <small>Listing Images, A+ Content, Store Pages</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="digital" class="mega-item accent-blue" role="menuitem">
+                <span class="mega-icon"><img src="assets/Icons/Asset 10.png" alt=""></span>
+                <span class="mega-text">
+                  <strong>Digital</strong>
+                  <small>Social Media, Marketing Creatives, Banners</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="print" class="mega-item accent-red" role="menuitem">
+                <span class="mega-icon"><img src="assets/Icons/Asset 17.png" alt=""></span>
+                <span class="mega-text">
+                  <strong>Print</strong>
+                  <small>Brochures, Flyers, Catalogues, Menu Cards</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="packaging" class="mega-item accent-yellow" role="menuitem">
+                <span class="mega-icon"><img src="assets/Icons/Asset 18.png" alt=""></span>
+                <span class="mega-text">
+                  <strong>Packaging</strong>
+                  <small>All types of packaging &amp; labels</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="large-format" class="mega-item accent-blue" role="menuitem">
+                <span class="mega-icon"><img src="assets/Icons/Asset 11.png" alt=""></span>
+                <span class="mega-text">
+                  <strong>Large Format</strong>
+                  <small>Exhibition Stalls, Shop Branding, Wraps</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="illustrations" class="mega-item accent-blue" role="menuitem">
+                <span class="mega-icon ring"><svg class="icon"><use href="#icon-pen" /></svg></span>
+                <span class="mega-text">
+                  <strong>Illustrations</strong>
+                  <small>Custom Illustrations, Icons, Infographics</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="photography" class="mega-item accent-green" role="menuitem">
+                <span class="mega-icon ring"><svg class="icon"><use href="#icon-camera" /></svg></span>
+                <span class="mega-text">
+                  <strong>Photography</strong>
+                  <small>Product &amp; Brand Photography</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="apparel" class="mega-item accent-red" role="menuitem">
+                <span class="mega-icon ring"><svg class="icon"><use href="#icon-shirt" /></svg></span>
+                <span class="mega-text">
+                  <strong>Apparel</strong>
+                  <small>T-shirt Design, Merchandise, Brand Apparel</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="video" class="mega-item accent-red" role="menuitem">
+                <span class="mega-icon ring"><svg class="icon"><use href="#icon-video" /></svg></span>
+                <span class="mega-text">
+                  <strong>Video</strong>
+                  <small>Product &amp; Explainer Videos, Reels/Shorts</small>
+                </span>
+              </a>
+              <a href="#services" data-svc-filter="website" class="mega-item accent-green" role="menuitem">
+                <span class="mega-icon ring"><svg class="icon"><use href="#icon-monitor" /></svg></span>
+                <span class="mega-text">
+                  <strong>Website &amp; UI</strong>
+                  <small>Web &amp; App UI, Landing Pages, Banners</small>
+                </span>
+              </a>
+            </div>
+            <div class="mega-footer">
+              <span>Not sure what you need? We'll help you scope it.</span>
+              <a href="#services" role="menuitem">View Our Work <svg class="icon-sm"><use href="#icon-arrow-right" /></svg></a>
+            </div>
+          </div>
+        </div>
+        <a href="#pricing" class="nav-item-link"><svg class="icon-sm">
+            <use href="#icon-tag" />
+          </svg> Pricing</a>
+        <a href="#printing" class="nav-item-link"><svg class="icon-sm">
+            <use href="#icon-printer" />
+          </svg> Print Services</a>
+        <a href="#login" class="nav-login"><svg class="icon-sm">
+            <use href="#icon-user" />
+          </svg> Login</a>
+        <a href="#contact" class="nav-cta">Book a Call <svg class="icon-sm">
+            <use href="#icon-arrow-right" />
+          </svg></a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-blob blob-a"></div>
+      <div class="hero-blob blob-b"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> Welcome to Graphic Crow</p>
+          <!-- <div class="hero-highlights-pills">
+            <span class="hero-pill pill-blue"><svg class="icon-sm"><use href="#icon-tag" /></svg> Project-Based Services</span>
+            <span class="hero-pill-sep">&amp;</span>
+            <span class="hero-pill pill-green"><svg class="icon-sm"><use href="#icon-infinity" /></svg> Flexible Monthly Subscriptions</span>
+          </div> -->
+          <h1>On-Demand<br><span class="gradient-text">Brand &amp; Design Partner</span></h1>
+          <p class="hero-lede">
+            <strong class="highlight-text-blue">Project-based services</strong> and <strong class="highlight-text-green">flexible monthly design subscriptions</strong> for startups, entrepreneurs, growing brands, and marketing agencies — whether it's a one-time branding project or ongoing creative support, we're here to help.
+          </p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">Explore Plans</a>
+                      </div>
+
+          <!-- <div class="hero-engagement-models">
+            <div class="engagement-card card-project">
+              <div class="card-badge badge-blue">One-Time Project</div>
+              <div class="card-header-row">
+                <div class="card-icon blue"><svg class="icon"><use href="#icon-tag" /></svg></div>
+                <div class="card-info">
+                  <strong>Project-Based Services</strong>
+                  <span>Fixed scope for logo, identity, web &amp; packaging</span>
+                </div>
+              </div>
+            </div>
+            <div class="engagement-card card-sub">
+              <div class="card-badge badge-green">Ongoing Subscription</div>
+              <div class="card-header-row">
+                <div class="card-icon green"><svg class="icon"><use href="#icon-infinity" /></svg></div>
+                <div class="card-info">
+                  <strong>Flexible Monthly Subscriptions</strong>
+                  <span>On-demand graphics &amp; video support. Pause anytime</span>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="stat-row">
+            <div class="stat-card">
+              <span class="stat-num grad-blue">10+ years</span>
+              <span class="stat-label">of Expertise</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num grad-yellow">100+</span>
+              <span class="stat-label">Customers Served</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num grad-green">1000+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-wrap" id="heroShowcase" aria-hidden="true">
+          <div class="showcase-col col-up" style="--dur:34s">
+            <div class="showcase-track">
+              <img src="assets/slider_new/rice-packaging.png" class="showcase-card h-med" alt="Portfolio sample">
+              <img src="assets/slider_new/kfc-billboard.png" class="showcase-card h-tall" alt="Portfolio sample">
+              <img src="assets/slider_new/supertails-instagram-ad.png" class="showcase-card h-short" alt="Portfolio sample">
+              <img src="assets/slider_new/gems-gold-jaggery.png" class="showcase-card h-med" alt="Portfolio sample">
+              <img src="assets/slider_new/unibic-salted-caramel.jpg" class="showcase-card h-short" alt="Portfolio sample">
+              <img src="assets/slider_new/rice-packaging.png" class="showcase-card h-med" alt="" aria-hidden="true">
+              <img src="assets/slider_new/kfc-billboard.png" class="showcase-card h-tall" alt="" aria-hidden="true">
+              <img src="assets/slider_new/supertails-instagram-ad.png" class="showcase-card h-short" alt="" aria-hidden="true">
+              <img src="assets/slider_new/gems-gold-jaggery.png" class="showcase-card h-med" alt="" aria-hidden="true">
+              <img src="assets/slider_new/unibic-salted-caramel.jpg" class="showcase-card h-short" alt="" aria-hidden="true">
+            </div>
+          </div>
+          <div class="showcase-col col-down" style="--dur:28s">
+            <div class="showcase-track">
+              <img src="assets/slider_new/grt-jewellers-billboard.png" class="showcase-card h-short" alt="Portfolio sample">
+              <img src="assets/slider_new/gsports-jersey.png" class="showcase-card h-med" alt="Portfolio sample">
+              <img src="assets/slider_new/happilo-exhibition-booth.png" class="showcase-card h-tall" alt="Portfolio sample">
+              <img src="assets/slider_new/market-pantry-icecream.png" class="showcase-card h-med" alt="Portfolio sample">
+              <img src="assets/slider_new/denister-jeans-tags.png" class="showcase-card h-short" alt="Portfolio sample">
+              <img src="assets/slider_new/grt-jewellers-billboard.png" class="showcase-card h-short" alt="" aria-hidden="true">
+              <img src="assets/slider_new/gsports-jersey.png" class="showcase-card h-med" alt="" aria-hidden="true">
+              <img src="assets/slider_new/happilo-exhibition-booth.png" class="showcase-card h-tall" alt="" aria-hidden="true">
+              <img src="assets/slider_new/market-pantry-icecream.png" class="showcase-card h-med" alt="" aria-hidden="true">
+              <img src="assets/slider_new/denister-jeans-tags.png" class="showcase-card h-short" alt="" aria-hidden="true">
+            </div>
+          </div>
+          <div class="showcase-col col-up third" style="--dur:40s">
+            <div class="showcase-track">
+              <img src="assets/slider_new/kabaddi-jersey.png" class="showcase-card h-tall" alt="Portfolio sample">
+              <img src="assets/slider_new/wedding-invite-mockup.png" class="showcase-card h-med" alt="Portfolio sample">
+              <img src="assets/slider_new/Seyon-Delivery-Partner-App-Home1.jpg" class="showcase-card h-short" alt="Portfolio sample">
+              <img src="assets/slider_new/yuka-home-bakes-branding.png" class="showcase-card h-med" alt="Portfolio sample">
+              <img src="assets/slider_new/kv-constructions-branding.png" class="showcase-card h-tall" alt="Portfolio sample">
+              <img src="assets/slider_new/kabaddi-jersey.png" class="showcase-card h-tall" alt="" aria-hidden="true">
+              <img src="assets/slider_new/wedding-invite-mockup.png" class="showcase-card h-med" alt="" aria-hidden="true">
+              <img src="assets/slider_new/Seyon-Delivery-Partner-App-Home1.jpg" class="showcase-card h-short" alt="" aria-hidden="true">
+              <img src="assets/slider_new/yuka-home-bakes-branding.png" class="showcase-card h-med" alt="" aria-hidden="true">
+              <img src="assets/slider_new/kv-constructions-branding.png" class="showcase-card h-tall" alt="" aria-hidden="true">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK INTRO VIDEO -->
+    <section class="section section-alt" id="intro">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Quick Intro</p>
+        <h2 class="center">Get to Know <span class="gradient-text">Graphic Crow.</span></h2>
+        <p class="section-lede center">A quick look at who we are, how we work, and what we can build for your brand.</p>
+
+        <div class="intro-video-wrap">
+          <video id="introVideo" class="intro-video" src="assets/INTRO.mp4" playsinline preload="metadata"
+            poster="assets/slider_new/branding.jpg"></video>
+          <button type="button" class="intro-play" id="introPlay" aria-label="Play intro video">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section">
+      <div class="container">
+        <div class="problem-top">
+          <div class="problem-copy">
+            <p class="eyebrow"><span class="dot"></span> The Problem</p>
+            <h2>Growing Businesses <br> Need Design…<br><span class="gradient-text">But Hiring Isn't Easy.</span></h2>
+            <p class="section-lede" style="margin-left:0">Design shouldn't slow your business. It should accelerate it.
+            </p>
+          </div>
+
+          <div class="problem-illustration" aria-hidden="true">
+            <img class="orbit-scene" src="assets/Icons/Asset 6.png" alt="">
+          </div>
+        </div>
+
+        <div class="grid grid-3 problem-grid">
+          <div class="problem-card">
+            <span class="x-badge">✕</span>
+            <h3>Hiring Full-Time Designers</h3>
+            <p>Expensive &amp; time-consuming.</p>
+          </div>
+          <div class="problem-card">
+            <span class="x-badge">✕</span>
+            <h3>Expensive Agencies</h3>
+            <p>High cost, long commitments.</p>
+          </div>
+          <div class="problem-card">
+            <span class="x-badge">✕</span>
+            <h3>Inconsistent Branding</h3>
+            <p>Different styles, no consistency.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="section section-alt" id="what-we-do">
+      <div class="container">
+        <p class="eyebrow"><span class="dot"></span> What We Do</p>
+        <h2>All Your Creative Needs, <span class="grad-text-blue">Handled With Expertise.</span></h2>
+
+        <div class="grid grid-5 service-grid">
+          <div class="service-card accent-yellow" id="svc-branding">
+            <div class="service-icon no-ring"><img src="assets/Icons/Asset 14.png" alt="Branding"></div>
+            <h3>Branding</h3>
+            <span class="service-underline"></span>
+            <p>Logo Design<br>Brand Identity<br>Brand Consulting</p>
+          </div>
+          <div class="service-card accent-green" id="svc-ecommerce">
+            <div class="service-icon"><svg class="icon"><use href="#icon-cart" /></svg></div>
+            <h3>E-commerce</h3>
+            <span class="service-underline"></span>
+            <p>Amazon Listing Images<br>A+ Contents<br>Store Page Design</p>
+          </div>
+          <div class="service-card accent-blue" id="svc-digital">
+            <div class="service-icon no-ring"><img src="assets/Icons/Asset 10.png" alt="Digital"></div>
+            <h3>Digital</h3>
+            <span class="service-underline"></span>
+            <p>Social Media<br>Marketing Creatives<br>Website Banners &amp; More</p>
+          </div>
+          <div class="service-card accent-red" id="svc-print">
+            <div class="service-icon no-ring"><img src="assets/Icons/Asset 17.png" alt="Print"></div>
+            <h3>Print</h3>
+            <span class="service-underline"></span>
+            <p>Brochures<br>Flyers, Catalogues<br>Menu Cards &amp; More</p>
+          </div>
+          <div class="service-card accent-yellow" id="svc-packaging">
+            <div class="service-icon no-ring"><img src="assets/Icons/Asset 18.png" alt="Packaging"></div>
+            <h3>Packaging</h3>
+            <span class="service-underline"></span>
+            <p>All Type of<br>Packaging &amp;<br>Label for Brands</p>
+          </div>
+          <div class="service-card accent-blue" id="svc-large-format">
+            <div class="service-icon no-ring"><img src="assets/Icons/Asset 11.png" alt="Large Format"></div>
+            <h3>Large Format</h3>
+            <span class="service-underline"></span>
+            <p>Exhibition Stalls,<br>Shop Branding,<br>Vehicle Wraps &amp; More</p>
+          </div>
+          <div class="service-card accent-blue" id="svc-illustrations">
+            <div class="service-icon"><svg class="icon"><use href="#icon-pen" /></svg></div>
+            <h3>Illustrations</h3>
+            <span class="service-underline"></span>
+            <p>Custom Illustrations,<br>Icons, Infographics<br>&amp; Artwork</p>
+          </div>
+          <div class="service-card accent-green" id="svc-photography">
+            <div class="service-icon"><svg class="icon"><use href="#icon-camera" /></svg></div>
+            <h3>Photography</h3>
+            <span class="service-underline"></span>
+            <p>Product Photography<br>Brand Photography<br>Content Support</p>
+          </div>
+          <div class="service-card accent-red" id="svc-apparel">
+            <div class="service-icon"><svg class="icon"><use href="#icon-shirt" /></svg></div>
+            <h3>Apparel</h3>
+            <span class="service-underline"></span>
+            <p>T-shirt Design,<br>Merchandise &amp;<br>Brand Apparel</p>
+          </div>
+          <div class="service-card accent-red" id="svc-video">
+            <div class="service-icon"><svg class="icon"><use href="#icon-video" /></svg></div>
+            <h3>Video</h3>
+            <span class="service-underline"></span>
+            <p>Product videos<br>Explainer Videos<br>Reels/Shorts &amp; More</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Our Process</p>
+        <h2 class="center"><span class="gradient-text">Design Made Easy,</span><br>From Brief to Delivery.</h2>
+
+        <img src="assets/Icons/images-04.png" class="process-visual" alt="Our process: Collect Brief, Research, Design, Review, Approved, Delivery">
+
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="section section-alt" id="industries">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Industries We Serve</p>
+        <h2 class="center">Creative Solutions <span class="gradient-text">For Every Industry.</span></h2>
+
+      </div>
+
+      <!-- Two rows scrolling in opposite directions. Each track's cards are
+           cloned once by JS so the -50% loop is seamless. -->
+      <div class="industry-marquee">
+        <div class="industry-track" data-marquee>
+          <div class="industry-chip accent-blue">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-rocket" /></svg></span>
+            <span><strong>Startups</strong><small>From idea to launch.</small></span>
+          </div>
+          <div class="industry-chip accent-blue">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-cart" /></svg></span>
+            <span><strong>D2C &amp; E-Commerce</strong><small>Stand out. Sell more.</small></span>
+          </div>
+          <div class="industry-chip accent-green">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-box" /></svg></span>
+            <span><strong>Manufacturing</strong><small>Build. Brand. Grow.</small></span>
+          </div>
+          <div class="industry-chip accent-green">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-book" /></svg></span>
+            <span><strong>Education</strong><small>Inspire. Inform. Impact.</small></span>
+          </div>
+          <div class="industry-chip accent-green">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-check-circle" /></svg></span>
+            <span><strong>Healthcare</strong><small>Communicate with care.</small></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="industry-marquee">
+        <div class="industry-track reverse" data-marquee>
+          <div class="industry-chip accent-red">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-tag" /></svg></span>
+            <span><strong>FMCG Brands</strong><small>Consumer trusted. Market ready.</small></span>
+          </div>
+          <div class="industry-chip accent-yellow">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-share" /></svg></span>
+            <span><strong>Marketing Agencies</strong><small>Reliable creative execution partner.</small></span>
+          </div>
+          <div class="industry-chip accent-yellow">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-monitor" /></svg></span>
+            <span><strong>SaaS Companies</strong><small>Sleek designs for digital brands.</small></span>
+          </div>
+          <div class="industry-chip accent-green">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-user" /></svg></span>
+            <span><strong>Coaches &amp; Consultants</strong><small>Build authority. Attract more clients.</small></span>
+          </div>
+          <div class="industry-chip accent-blue">
+            <span class="industry-chip-icon"><svg class="icon"><use href="#icon-briefcase" /></svg></span>
+            <span><strong>Corporate &amp; B2B</strong><small>Professional, consistent branding.</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Our Services</p>
+        <h2 class="center">A Glimpse of <span class="gradient-text">What We Create.</span></h2>
+        <p class="section-lede center">Sample project categories from our studio — full portfolio available on request.
+        </p>
+
+        <!-- Category values here match data-svc-filter in the services mega menu,
+             so a menu click lands on the matching filter. -->
+        <div class="filter-row" id="filterRow">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="branding">Branding</button>
+          <button class="filter-pill" data-filter="e-commerce">E-Commerce</button>
+          <button class="filter-pill" data-filter="digital">Digital</button>
+          <button class="filter-pill" data-filter="print">Print Designs</button>
+          <button class="filter-pill" data-filter="packaging">Packaging</button>
+          <button class="filter-pill" data-filter="large-format">Large Format</button>
+          <button class="filter-pill" data-filter="illustrations">Illustrations</button>
+          <button class="filter-pill" data-filter="photography">Photography</button>
+          <button class="filter-pill" data-filter="apparel">Apparel</button>
+          <button class="filter-pill" data-filter="video">Videos</button>
+          <button class="filter-pill" data-filter="website">Website &amp; UI</button>
+        </div>
+
+        <div class="work-grid" id="workGrid">
+          <article class="work-card" data-cat="branding">
+            <div class="work-thumb"><img src="assets/logos/logo-designs-portfolio.jpg" alt="Logo design portfolio" style="object-position: top"></div>
+            <h3>Logo Design Portfolio</h3>
+            <p>Logo</p>
+          </article>
+          <article class="work-card" data-cat="branding">
+            <div class="work-thumb"><img src="assets/branding/farmers-products.png" alt="Farmers Products — brand identity"></div>
+            <h3>Farmers Products — Brand Identity</h3>
+            <p>Branding</p>
+          </article>
+          <article class="work-card" data-cat="branding">
+            <div class="work-thumb"><img src="assets/branding/yahlee-salon.png" alt="Yahlee Salon & Boutique — brand identity"></div>
+            <h3>Yahlee Salon &amp; Boutique — Brand Identity</h3>
+            <p>Branding</p>
+          </article>
+          <article class="work-card" data-cat="packaging">
+            <div class="work-thumb"><img src="assets/slider_new/packaging-happilo-giftbox.jpg" alt="Happilo dry fruit gift tube — packaging"></div>
+            <h3>Happilo — Dry Fruit Gift Packaging</h3>
+            <p>Packaging</p>
+          </article>
+          <article class="work-card" data-cat="packaging">
+            <div class="work-thumb"><img src="assets/slider_new/packaging-happilo-redbox.jpg" alt="Happilo dry fruit collection — gift box packaging"></div>
+            <h3>Happilo — Dry Fruit Collection Box</h3>
+            <p>Packaging</p>
+          </article>
+          <article class="work-card" data-cat="digital">
+            <div class="work-thumb"><img src="assets/social-media/duroflex-social.jpg" alt="Duroflex Foam — social creative"></div>
+            <h3>Duroflex Foam — Social Creative</h3>
+            <p>Social Media</p>
+          </article>
+          <article class="work-card" data-cat="digital">
+            <div class="work-thumb"><img src="assets/social-media/supertails-social.jpg" alt="Supertails — Instagram post"></div>
+            <h3>Supertails — Instagram Ad</h3>
+            <p>Social Media</p>
+          </article>
+          <article class="work-card" data-cat="e-commerce">
+            <div class="work-thumb"><img src="assets/e-commerce/happilo-ecommerce-banners.png" alt="Happilo — e-commerce banners"></div>
+            <h3>Happilo — E-commerce Banners</h3>
+            <p>E-Commerce</p>
+          </article>
+          <article class="work-card" data-cat="print">
+            <div class="work-thumb"><img src="assets/print/crispy-crunchy-eats-menu.png" alt="Crispy & Crunchy Eats — menu design"></div>
+            <h3>Crispy &amp; Crunchy Eats — Menu Design</h3>
+            <p>Print Designs</p>
+          </article>
+          <article class="work-card" data-cat="large-format">
+            <div class="work-thumb"><img src="assets/trade_events/happilo-exhibition-booth.png" alt="Happilo — exhibition booth design"></div>
+            <h3>Happilo — Exhibition Booth</h3>
+            <p>Trade &amp; Events</p>
+          </article>
+          <article class="work-card" data-cat="video">
+            <div class="work-thumb">
+              <video src="assets/video/garlic-mix-zepto.mp4" muted playsinline preload="metadata"></video>
+              <span class="play-badge" aria-hidden="true"><svg class="icon"><use href="#icon-video" /></svg></span>
+            </div>
+            <h3>Garlic Mix — Zepto Product Video</h3>
+            <p>Videos</p>
+          </article>
+          <article class="work-card" data-cat="website">
+            <div class="work-thumb"><img src="assets/website/Seyon-Delivery-Partner-App-Home.jpg" alt="Seyon Delivery Partner — app screen"></div>
+            <h3>Seyon Delivery Partner — App Design</h3>
+            <p>Website &amp; UI</p>
+          </article>
+        </div>
+
+        <!-- Shown when a category has no samples published yet -->
+        <div class="work-empty" id="workEmpty" hidden>
+          <svg class="icon-lg"><use href="#icon-image" /></svg>
+          <p>Samples for <strong id="workEmptyCat">this category</strong> are on the way.</p>
+          <a href="#contact" class="btn btn-primary">Ask to See This Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINTING -->
+    <section class="section section-alt" id="printing">
+      <div class="container printing-inner">
+        <div class="printing-copy">
+          <p class="eyebrow"><span class="dot"></span> Printing Support</p>
+          <h2>Professional Printing,<br><span class="gradient-text">Delivered to your doorstep.</span></h2>
+          <p class="section-lede">We support you from design to print with the best quality &amp; price.</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon"><img src="assets/Icons/Asset 17.png" alt=""></div>
+              <div class="feature-text"><strong>Best Quality Printing</strong><span>Premium materials &amp; finish</span></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><img src="assets/Icons/Asset 20.png" alt=""></div>
+              <div class="feature-text"><strong>Competitive Pricing</strong><span>Fair, transparent rates</span></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><img src="assets/Icons/Asset 18.png" alt=""></div>
+              <div class="feature-text"><strong>Doorstep Delivery</strong><span>Fast, reliable shipping</span></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><img src="assets/Icons/Asset 22.png" alt=""></div>
+              <div class="feature-text"><strong>Fast Turnaround</strong><span>2–3 working days<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></span></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><img src="assets/Icons/Asset 19.png" alt=""></div>
+              <div class="feature-text"><strong>End-to-End Support</strong><span>From design to delivery</span></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><img src="assets/Icons/Asset 21.png" alt=""></div>
+              <div class="feature-text"><strong>Trusted Print Partners</strong><span>Vetted, reliable vendors</span></div>
+            </div>
+          </div>
+          <div class="callout">
+            <span class="callout-icon"><svg class="icon"><use href="#icon-award" /></svg></span>
+            <span>You focus on your business, we take care of the print.</span>
+          </div>
+        </div>
+        <div class="printing-visual" aria-hidden="true">
+          <img src="assets/Icons/QonCnk.tif.png" class="printing-visual-main" alt="">
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING & ENGAGEMENT MODELS -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Flexible Engagement Models</p>
+        <h2 class="center"><span class="gradient-text">Project-Based</span> &amp; Monthly Subscriptions</h2>
+        <p class="section-lede center">Choose between flexible monthly design subscriptions for ongoing creative support or transparent project-based pricing for one-time branding &amp; design.</p>
+
+        <div class="model-section-banner sub-banner">
+          <span class="banner-badge green-badge"><svg class="icon-sm"><use href="#icon-infinity" /></svg> Flexible Monthly Subscriptions</span>
+          <span class="banner-text">On-demand design team • Scale up, down, pause or cancel anytime</span>
+        </div>
+
+        <div class="grid grid-4 pricing-grid">
+          <div class="price-card">
+            <div class="price-top grad-blue-bg"></div>
+            <h3>Starter</h3>
+            <div class="price">₹9,999<span>/mo</span></div>
+            <ul>
+              <li>Up to 10 Creative Requests</li>
+              <li>Avg. turnaround 24–72 hrs<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Unlimited Revisions<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Licensed Stock Assets</li>
+              <li>Source Files Included</li>
+              <li>1 Active Request at a Time</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Choose Starter</a>
+          </div>
+
+          <div class="price-card featured">
+            <span class="popular-tag">Most Popular</span>
+            <div class="price-top grad-green-bg"></div>
+            <h3>Growth</h3>
+            <div class="price">₹19,999<span>/mo</span></div>
+            <ul>
+              <li>Up to 20 Creative Requests</li>
+              <li>Avg. turnaround 24–72 hrs<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Unlimited Revisions<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Licensed Stock Assets</li>
+              <li>Source Files Included</li>
+              <li>1 Active Request at a Time</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Growth</a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-top grad-yellow-bg"></div>
+            <h3>Pro</h3>
+            <div class="price">₹29,999<span>/mo</span></div>
+            <ul>
+              <li>Up to 10 Creative + 5 Video Requests</li>
+              <li>Avg. turnaround 24–72 hrs<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Unlimited Revisions<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Licensed Stock Assets</li>
+              <li>Source Files Included</li>
+              <li>1 Active Request at a Time</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Choose Pro</a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-top grad-red-bg"></div>
+            <h3>Agency</h3>
+            <div class="price">₹49,999<span>/mo</span></div>
+            <ul>
+              <li>Up to 20 Creative + 10 Video Requests</li>
+              <li>Avg. turnaround 24–72 hrs<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Unlimited Revisions<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></li>
+              <li>Licensed Stock Assets</li>
+              <li>Source Files Included</li>
+              <li>1 Active Request at a Time</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Choose Agency</a>
+          </div>
+        </div>
+
+        <div class="pricing-cta">
+          <div class="pricing-cta-text">
+            <strong>Need a customized subscription plan?</strong>
+            <span>Why delay — let's build one that fits your brand.</span>
+          </div>
+          <a href="#contact" class="btn btn-primary">Book a Call</a>
+        </div>
+
+        <!-- Project based pricing -->
+        <div class="model-section-banner project-banner">
+          <span class="banner-badge blue-badge"><svg class="icon-sm"><use href="#icon-tag" /></svg> Project-Based Services</span>
+          <span class="banner-text">Fixed-scope custom quotes for one-time branding, packaging, catalogues &amp; website design</span>
+        </div>
+
+        <div class="project-pricing">
+          <div class="project-copy">
+            <span class="project-tag">Custom Quote</span>
+            <h2>Have a <span class="gradient-text">One-Time Project?</span></h2>
+            <p class="project-lede">We offer custom pricing for specific projects based on your requirements — one-time,
+              fixed-scope work that isn't covered under any monthly subscription plan.</p>
+            <ul class="project-perks">
+              <li><svg class="icon-sm"><use href="#icon-check-circle" /></svg> Transparent, fixed-scope quote</li>
+              <li><svg class="icon-sm"><use href="#icon-check-circle" /></svg> Senior designer on every project</li>
+              <li><svg class="icon-sm"><use href="#icon-check-circle" /></svg> Native source files on delivery</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Enquire Now <svg class="icon-sm"><use href="#icon-arrow-right" /></svg></a>
+            <p class="project-microcopy">Free consultation — no obligation.</p>
+          </div>
+
+          <div class="project-list">
+            <div class="project-group accent-blue">
+              <div class="project-group-head">
+                <span class="project-group-icon"><svg class="icon-sm"><use href="#icon-award" /></svg></span>
+                <h4>Branding &amp; Identity</h4>
+               
+              </div>
+              <ul>
+                <li>Logo Design</li>
+                <li>Branding</li>
+                <li>Consulting</li>
+              </ul>
+            </div>
+            <div class="project-group accent-green">
+              <div class="project-group-head">
+                <span class="project-group-icon"><svg class="icon-sm"><use href="#icon-video" /></svg></span>
+                <h4>Videos</h4>
+                
+              </div>
+              <ul>
+                <li>Motion Graphics (Explainers / Corporate)</li>
+                <li>Video Editing (Corporate / Long-form)</li>
+                <li>E-commerce (Listing Videos &amp; Ads)</li>
+              </ul>
+            </div>
+            <div class="project-group accent-red">
+              <div class="project-group-head">
+                <span class="project-group-icon"><svg class="icon-sm"><use href="#icon-printer" /></svg></span>
+                <h4>Print &amp; Visual</h4>
+              </div>
+              <ul>
+                <li>Packaging &amp; Label</li>
+                <li>Trade &amp; Event Stalls</li>
+                <li>Catalogue Design</li>
+                <li>Menu Card Design</li>
+                <li>Invitation Design</li>
+                <li>Vehicle Wrap Design</li>
+                <li>Custom Illustrations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="note-line"><strong class="note-highlight">Please Note:</strong> These services are offered exclusively as one-time, fixed-scope projects. They are excluded from monthly subscription coverage.</p>
+      </div>
+    </section>
+
+    <!-- SUBSCRIPTION INCLUSIONS -->
+    <section class="section section-alt" id="included">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Subscription Plan</p>
+        <h2 class="center">What's <span class="gradient-text">Included &amp; What's Not.</span></h2>
+
+        <div class="grid grid-2 included-grid">
+          <div class="included-card">
+            <span class="corner-badge check" aria-hidden="true">&#10003;</span>
+            <h3>Subscription Plan Deliverables</h3>
+            <ul class="check-list">
+              <li>Social Media Creatives</li>
+              <li>Poster &amp; Flyer Design</li>
+              <li>Website Banners</li>
+              <li>E-commerce Listing Images &amp; A+ Contents</li>
+              <li>Reels / Shorts Editing (up to 60 sec)</li>
+              <li>Motion Graphics — short-form (up to 30 sec)</li>
+              <li>Video Editing — short-form (up to 30 sec)</li>
+              <li>T-shirt Graphics</li>
+              <li>Marketing Creatives</li>
+            </ul>
+          </div>
+          <div class="included-card excluded">
+            <span class="corner-badge x" aria-hidden="true">&#10005;</span>
+            <h3>What is NOT Included</h3>
+            <ul class="x-list">
+              <li>Copywriting &amp; Content Writing</li>
+              <li>Printing Cost</li>
+              <li>Paid Stock Assets (unless mentioned)</li>
+              <li>Website Development</li>
+              <li>3D Animation / CGI / VFX</li>
+              <li>Complex Illustration</li>
+              <li>Photography Shoot</li>
+              <li>On-site Visits</li>
+              <li>Rush / Same-Day Delivery</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note-line"><strong class="note-highlight">Please Note:</strong> Only these short-turnaround projects are accepted under any monthly subscription plan.</p>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section" id="why">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Why Choose Us?</p>
+        <h2 class="center">Reasons brands <span class="gradient-text">trust Graphic Crow.</span></h2>
+
+        <div class="grid grid-4 why-grid">
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 9.png" alt=""></div>
+            <h3>10+ Years of Expertise</h3>
+            <span class="why-underline"></span>
+            <p>Senior-level branding and design experience.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 10.png" alt=""></div>
+            <h3>AI-Powered Workflow</h3>
+            <span class="why-underline"></span>
+            <p>We use the latest AI tools to deliver faster &amp; smarter.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 7.png" alt=""></div>
+            <h3>Fast Turnaround 24–72 hrs<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></h3>
+            <span class="why-underline"></span>
+            <p>Most requests start within 24 hrs.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 8.png" alt=""></div>
+            <h3>Unlimited Revisions<a href="#terms" class="footnote-star" data-tooltip="Click to view Terms &amp; Conditions" aria-label="Click to view Terms &amp; Conditions">*</a></h3>
+            <span class="why-underline"></span>
+            <p>Until it's right — we perfect it for you.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 14.png" alt=""></div>
+            <h3>Native Source Files</h3>
+            <span class="why-underline"></span>
+            <p>Receive fully editable source files.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 11.png" alt=""></div>
+            <h3>Premium Stock Assets</h3>
+            <span class="why-underline"></span>
+            <p>Licensed assets from Envato, Magnific.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 13.png" alt=""></div>
+            <h3>Work Across All Brands</h3>
+            <span class="why-underline"></span>
+            <p>Consistent designs across all your brands.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><img src="assets/Icons/Asset 12.png" alt=""></div>
+            <h3>One Trusted Partner</h3>
+            <span class="why-underline"></span>
+            <p>Reliable, consistent &amp; always in your corner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT TESTIMONIALS -->
+    <section class="section section-alt" id="testimonials">
+      <div class="container">
+        <!-- <p class="eyebrow center"><span class="dot"></span> Client Testimonials</p> -->
+        <h2 class="center testimonials-title"><span class="grad-text-blue">Client</span> <span class="gradient-text">Testimonials</span></h2>
+        <p class="section-lede center">Real feedback from businesses we've helped build through creative design.</p>
+
+        <div class="grid grid-3 testimonial-grid">
+          <div class="testimonial-card accent-blue">
+            <div class="testimonial-header">
+              <div class="testimonial-quote">&#8220;</div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+            <p class="testimonial-text">Graphic Crow completely transformed our brand identity. Fast turnaround, exceptional quality, and a team that truly understands our vision.</p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-person">
+                <span class="testimonial-avatar">RS</span>
+              <div class="testimonial-info">
+                <strong class="testimonial-name">Rishi SD</strong>
+                <span class="testimonial-role">Founder</span>
+                <span class="testimonial-company">RK Foods</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card accent-green">
+            <div class="testimonial-header">
+              <div class="testimonial-quote">&#8220;</div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+            <p class="testimonial-text">From packaging to social media creatives, everything exceeded our expectations. Highly recommended for growing businesses.</p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-person">
+              <span class="testimonial-avatar">ST</span>
+              <div class="testimonial-info">
+                <strong class="testimonial-name">Sarah Thomas</strong>
+                <span class="testimonial-role">Marketing Manager</span>
+                <span class="testimonial-company">Nova Retail</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card accent-red">
+            <div class="testimonial-header">
+              <div class="testimonial-quote">&#8220;</div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+            <p class="testimonial-text">Professional, responsive, and creative. They became our extended design team without the cost of hiring in-house.</p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-person">
+              <span class="testimonial-avatar">AP</span>
+              <div class="testimonial-info">
+                <strong class="testimonial-name">Arjun Prakash</strong>
+                <span class="testimonial-role">CEO</span>
+                <span class="testimonial-company">Vertex Manufacturing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERMS & CONDITIONS -->
+    <section class="section" id="terms">
+      <div class="container">
+        <p class="eyebrow center"><span class="dot"></span> Terms &amp; Conditions</p>
+        <h2 class="center">Important <span class="gradient-text">Terms You Should Know.</span></h2>
+
+        <div class="terms-list">
+          <div class="terms-card">
+            <div class="terms-icon blue"><svg class="icon"><use href="#icon-clock" /></svg></div>
+            <div>
+              <h3>One Active Request at a Time</h3>
+              <span class="terms-highlight">For all requests: avg. turnaround time 24–72 hrs*</span>
+              <ul class="terms-points">
+                <li>To ensure quality and faster delivery, we work on one active request at a time.</li>
+                <li>Once the current request is approved or completed, the next request in your queue begins.</li>
+                <li>All requests are completed based on the order in which they are submitted, unless otherwise agreed.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="terms-card">
+            <div class="terms-icon green"><svg class="icon"><use href="#icon-layers" /></svg></div>
+            <div>
+              <h3>Every Request Has Different Complexity</h3>
+              <ul class="terms-points">
+                <li>Some requests may take a few hours, while others require several days depending on their complexity, content, and revisions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="terms-card">
+            <div class="terms-icon yellow"><svg class="icon"><use href="#icon-check-circle" /></svg></div>
+            <div>
+              <h3>Revision Policy</h3>
+              <ul class="terms-points">
+                <li>Unlimited revisions apply only to the approved concept.</li>
+                <li>A complete redesign or change in the original brief is considered a new request.</li>
+                <li>Adaptations, corrections or updates to an old / already completed design file or video — 2 requests are considered as 1 request.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="terms-card">
+            <div class="terms-icon red"><svg class="icon"><use href="#icon-download" /></svg></div>
+            <div>
+              <h3>Refund Policy</h3>
+              <ul class="terms-points">
+                <li>Once project work or printing has been initiated or is in progress, any advance payment or full payment is <strong>non-refundable</strong> under any circumstances.</li>
+                <li>A full refund or subscription request return will be issued only if <strong>Graphic Crow</strong> fails to deliver the project within <strong>2 days after the agreed deadline</strong>, provided the delay is solely our responsibility and not due to changes, delays, or pending approvals from the client.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="terms-card">
+            <div class="terms-icon blue"><svg class="icon"><use href="#icon-box" /></svg></div>
+            <div>
+              <h3>Print Delivery Policy</h3>
+              <ul class="terms-points">
+                <li>Delivery timelines are estimated and may vary depending on the courier service, location, weather conditions, holidays, or other unforeseen circumstances.</li>
+                <li>Once the printed materials are handed over to the courier or delivery partner, Graphic Crow is not responsible for delays caused by the shipping provider.</li>
+                <li>Customers are requested to inspect the package upon delivery and report any transit damage or missing items within 24 hours of receiving the order, along with photos for verification.</li>
+                <li>Shipping charges, if applicable, are non-refundable once the order has been dispatched.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <!-- <p class="eyebrow"><span class="dot"></span> Contact</p> -->
+          <h2>Let's Design Something<br><span class="gradient-text">Great Together.</span></h2>
+
+          <div class="contact-person">
+            <div class="contact-avatar">
+              <img src="assets/contact.png" alt="Somasundharam, Founder of Graphic Crow">
+            </div>
+            <blockquote>
+              "Good design is not just about visuals. It's about solving problems, building trust, and creating impact."
+              <cite>— Somasundharam, Founder</cite>
+            </blockquote>
+          </div>
+
+          <div class="contact-links">
+          
+            <!-- <a href="https://www.graphiccrow.com" target="_blank" rel="noopener" class="btn btn-outline"><svg
+                class="icon-sm">
+                <use href="#icon-globe" />
+              </svg> www.graphiccrow.com</a> -->
+          </div>
+        
+        </div>
+        <!-- FormSubmit: free, unlimited, no account and no API key. Submissions
+             are emailed to the address in the action URL below.
+             ACTIVATION: the very first submission triggers a confirmation email
+             to info@graphiccrow.com — click the link in it once and the form is
+             live permanently.
+             Optional later: FormSubmit can issue a random alias (formsubmit.co/ajax/xxxxx)
+             so the inbox address isn't exposed to scrapers in the page source. -->
+        <form class="contact-form" id="contactForm"
+              action="https://formsubmit.co/ajax/info@graphiccrow.com" method="POST">
+          <h3>Book a Call</h3>
+
+          <input type="hidden" name="_subject" value="New enquiry from graphiccrow.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <!-- Honeypot: bots fill this, humans never see it -->
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+
+          <label>Name<input type="text" name="name" required></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Phone<input type="tel" name="phone"></label>
+          <label>Tell us about your project<textarea name="message" rows="4" required></textarea></label>
+          <button type="submit" class="btn btn-primary btn-block" id="formSubmit">Send Request</button>
+          <p class="form-hint">We're excited to work with you soon!<br>Please share your details &amp; we'll get back in 2-3 working days.</p>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#top" class="footer-logo-chip">
+          <img src="assets/logo.png" alt="Graphic Crow — Brand Design Consultancy" width="219" height="100">
+        </a>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/company/131354072" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon">
+                <use href="#icon-linkedin" />
+              </svg></a>
+            <a href="https://www.instagram.com/graphic_crow/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon">
+                <use href="#icon-instagram" />
+              </svg></a>
+          </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#top">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#terms">Terms &amp; Conditions</a></li>
+          <li><a href="#printing">Print Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:info@graphiccrow.com">info@graphiccrow.com</a><br>For enquiries &amp; bookings</p>
+        <p><a href="mailto:care@graphiccrow.com">care@graphiccrow.com</a><br>Complaints &amp; support</p>
+      </div>
+
+      <div class="footer-address">
+        <h4>Address</h4>
+        <p>
+          <strong>Graphic Crow</strong><br>
+          Brand Design Consultancy<br>
+          8, Chitra Gold House,<br>
+          Narayana Nagar, Kumarapalayam,<br>
+          Tamil Nadu 638183<br>
+          India
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© <span id="year"></span> Graphic Crow. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <div class="star-tooltip" id="starTooltip" role="tooltip"></div>
+
+  <div class="lightbox" id="workLightbox" role="dialog" aria-modal="true" aria-label="Project preview">
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close preview">&#10005;</button>
+      <div class="lightbox-body" id="lightboxBody"></div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script src="script.js?v=10"></script>
+</body>
+
+</html>
