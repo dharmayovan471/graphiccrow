@@ -320,12 +320,32 @@ document.querySelectorAll('[data-marquee]').forEach(track => {
 
 // Hero showcase columns are pure CSS (animation + hover-pause) — no JS needed.
 
-// Contact form — posts to Web3Forms, which forwards each submission to the
+// Contact form — posts to FormSubmit, which forwards each submission to the
 // destination address in the form's action URL. No API key or mailbox password
 // is involved, so there is nothing secret in this file.
+const CONTACT_EMAIL = 'info@graphiccrow.com';
 const form = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 const formSubmit = document.getElementById('formSubmit');
+
+// If the API call fails for any reason (form not yet activated, service down,
+// visitor offline, corporate firewall), fall back to a pre-filled mail draft
+// so the enquiry still reaches us instead of hitting a dead end.
+function buildMailtoFallback() {
+  const get = n => (form.querySelector(`[name="${n}"]`)?.value || '').trim();
+  const body = [
+    `Name: ${get('name')}`,
+    `Email: ${get('email')}`,
+    `Phone: ${get('phone') || '-'}`,
+    '',
+    'Project details:',
+    get('message')
+  ].join('\n');
+
+  return `mailto:${CONTACT_EMAIL}` +
+    `?subject=${encodeURIComponent('New enquiry from graphiccrow.com')}` +
+    `&body=${encodeURIComponent(body)}`;
+}
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -355,12 +375,15 @@ form.addEventListener('submit', async (e) => {
       throw new Error(data.message || 'Submission failed');
     }
   } catch (err) {
-    // Visitors get a friendly line; the real reason goes to the console so
-    // setup problems (form not activated, opened as a file:// page, network
-    // blocked) are diagnosable instead of hidden behind a generic message.
+    // Visitors get a friendly line plus a one-click way through; the real
+    // reason goes to the console so setup problems (form not activated,
+    // opened as a file:// page, network blocked) stay diagnosable.
     console.error('[contact form] submission failed:', err.message);
     formNote.className = 'form-note error';
-    formNote.textContent = 'Sorry, that didn’t send. Please email us directly at info@graphiccrow.com.';
+    formNote.innerHTML =
+      'Couldn’t send automatically. ' +
+      `<a class="form-fallback-link" href="${buildMailtoFallback()}">Click here to email us instead</a> ` +
+      '— your details are already filled in.';
   } finally {
     formSubmit.disabled = false;
     formSubmit.textContent = originalLabel;
