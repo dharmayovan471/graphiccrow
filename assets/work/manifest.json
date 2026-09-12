@@ -1,0 +1,498 @@
+{
+  "apparel": [
+    {
+      "file": "assets/work/apparel/apparel-1.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/apparel/apparel-2.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    }
+  ],
+  "branding": [
+    {
+      "file": "assets/work/branding/branding-1.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-10.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-11.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-12.webp",
+      "featured": false,
+      "w": 1122,
+      "h": 1402
+    },
+    {
+      "file": "assets/work/branding/branding-2.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-3.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-4.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-5.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-6.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-7.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-8.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/branding/branding-9.webp",
+      "featured": false,
+      "w": 1122,
+      "h": 1402
+    }
+  ],
+  "digital": [
+    {
+      "file": "assets/work/digital/sm01.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm02.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm03.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm04.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm05.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm06.webp",
+      "featured": true,
+      "w": 1302,
+      "h": 1302
+    },
+    {
+      "file": "assets/work/digital/sm07.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm08.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm09.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/digital/sm10.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    }
+  ],
+  "e-commerce": [
+    {
+      "file": "assets/work/e-commerce/a-banners-01.webp",
+      "featured": true,
+      "w": 2322,
+      "h": 4308
+    },
+    {
+      "file": "assets/work/e-commerce/a-banners-02.webp",
+      "featured": false,
+      "w": 6235,
+      "h": 5941
+    },
+    {
+      "file": "assets/work/e-commerce/a-banners-05.webp",
+      "featured": false,
+      "w": 6063,
+      "h": 5818
+    },
+    {
+      "file": "assets/work/e-commerce/listing-images-01.webp",
+      "featured": false,
+      "w": 8000,
+      "h": 4500
+    },
+    {
+      "file": "assets/work/e-commerce/listing-images-02.webp",
+      "featured": true,
+      "w": 8000,
+      "h": 4500
+    },
+    {
+      "file": "assets/work/e-commerce/listing-images-03.webp",
+      "featured": false,
+      "w": 8000,
+      "h": 4500
+    },
+    {
+      "file": "assets/work/e-commerce/listing-images-04.webp",
+      "featured": false,
+      "w": 8000,
+      "h": 4500
+    },
+    {
+      "file": "assets/work/e-commerce/listing-images-05.webp",
+      "featured": false,
+      "w": 8000,
+      "h": 4500
+    },
+    {
+      "file": "assets/work/e-commerce/web-banners-01.webp",
+      "featured": false,
+      "w": 6062,
+      "h": 2970
+    },
+    {
+      "file": "assets/work/e-commerce/web-banners-02.webp",
+      "featured": false,
+      "w": 5693,
+      "h": 3124
+    },
+    {
+      "file": "assets/work/e-commerce/web-banners-03.webp",
+      "featured": false,
+      "w": 5067,
+      "h": 6773
+    },
+    {
+      "file": "assets/work/e-commerce/web-banners-04.webp",
+      "featured": true,
+      "w": 3260,
+      "h": 1753
+    }
+  ],
+  "large-format": [
+    {
+      "file": "assets/work/large-format/large-1.webp",
+      "featured": true,
+      "w": 1680,
+      "h": 1513
+    },
+    {
+      "file": "assets/work/large-format/large-2.webp",
+      "featured": false,
+      "w": 1536,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/large-format/large-3.webp",
+      "featured": true,
+      "w": 1536,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/large-format/large-4.webp",
+      "featured": false,
+      "w": 1644,
+      "h": 957
+    },
+    {
+      "file": "assets/work/large-format/large-5.webp",
+      "featured": true,
+      "w": 1870,
+      "h": 841
+    },
+    {
+      "file": "assets/work/large-format/large-6.webp",
+      "featured": false,
+      "w": 1282,
+      "h": 816
+    },
+    {
+      "file": "assets/work/large-format/large-7.webp",
+      "featured": false,
+      "w": 1024,
+      "h": 1536
+    }
+  ],
+  "packaging": [
+    {
+      "file": "assets/work/packaging/pack-1.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/packaging/pack-10.webp",
+      "featured": false,
+      "w": 767,
+      "h": 1364
+    },
+    {
+      "file": "assets/work/packaging/pack-11.webp",
+      "featured": true,
+      "w": 1080,
+      "h": 1920
+    },
+    {
+      "file": "assets/work/packaging/pack-12.webp",
+      "featured": false,
+      "w": 718,
+      "h": 1276
+    },
+    {
+      "file": "assets/work/packaging/pack-13.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/packaging/pack-14.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/packaging/pack-15.webp",
+      "featured": false,
+      "w": 1408,
+      "h": 736
+    },
+    {
+      "file": "assets/work/packaging/pack-16.webp",
+      "featured": false,
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "file": "assets/work/packaging/pack-18.webp",
+      "featured": false,
+      "w": 2415,
+      "h": 3000
+    },
+    {
+      "file": "assets/work/packaging/pack-2.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/packaging/pack-3.webp",
+      "featured": false,
+      "w": 1536,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/packaging/pack-4.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/packaging/pack-5.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/packaging/pack-6.webp",
+      "featured": false,
+      "w": 1142,
+      "h": 2032
+    },
+    {
+      "file": "assets/work/packaging/pack-7.webp",
+      "featured": false,
+      "w": 720,
+      "h": 720
+    },
+    {
+      "file": "assets/work/packaging/pack-8.webp",
+      "featured": true,
+      "w": 3840,
+      "h": 2880
+    },
+    {
+      "file": "assets/work/packaging/pack-9.webp",
+      "featured": true,
+      "w": 4167,
+      "h": 7408
+    }
+  ],
+  "print": [
+    {
+      "file": "assets/work/print/print-1.webp",
+      "featured": true,
+      "w": 2503,
+      "h": 1677
+    },
+    {
+      "file": "assets/work/print/print-10.webp",
+      "featured": true,
+      "w": 864,
+      "h": 1222
+    },
+    {
+      "file": "assets/work/print/print-11.webp",
+      "featured": true,
+      "w": 899,
+      "h": 1599
+    },
+    {
+      "file": "assets/work/print/print-12.webp",
+      "featured": false,
+      "w": 1492,
+      "h": 1054
+    },
+    {
+      "file": "assets/work/print/print-13.webp",
+      "featured": false,
+      "w": 864,
+      "h": 1224
+    },
+    {
+      "file": "assets/work/print/print-14.webp",
+      "featured": false,
+      "w": 1024,
+      "h": 1536
+    },
+    {
+      "file": "assets/work/print/print-15.webp",
+      "featured": true,
+      "w": 1536,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/print/print-16.webp",
+      "featured": true,
+      "w": 1086,
+      "h": 1448
+    },
+    {
+      "file": "assets/work/print/print-17.webp",
+      "featured": false,
+      "w": 1536,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/print/print-18.webp",
+      "featured": false,
+      "w": 4500,
+      "h": 3000
+    },
+    {
+      "file": "assets/work/print/print-9.webp",
+      "featured": false,
+      "w": 1122,
+      "h": 1402
+    },
+    {
+      "file": "assets/work/print/print-2.webp",
+      "featured": false,
+      "w": 3508,
+      "h": 2339
+    },
+    {
+      "file": "assets/work/print/print-3.webp",
+      "featured": true,
+      "w": 3799,
+      "h": 2528
+    },
+    {
+      "file": "assets/work/print/print-4.webp",
+      "featured": false,
+      "w": 853,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/print/print-5.webp",
+      "featured": true,
+      "w": 1086,
+      "h": 1448
+    },
+    {
+      "file": "assets/work/print/print-6.webp",
+      "featured": true,
+      "w": 1536,
+      "h": 1024
+    },
+    {
+      "file": "assets/work/print/print-7.webp",
+      "featured": false,
+      "w": 1402,
+      "h": 1122
+    },
+    {
+      "file": "assets/work/print/print-8.webp",
+      "featured": false,
+      "w": 1536,
+      "h": 1024
+    }
+  ],
+  "website": [
+    {
+      "file": "assets/work/website/ui.webp",
+      "featured": true,
+      "w": 1254,
+      "h": 1254
+    },
+    {
+      "file": "assets/work/website/ui02.webp",
+      "featured": false,
+      "w": 1254,
+      "h": 1254
+    }
+  ]
+}

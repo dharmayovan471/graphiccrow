@@ -13,7 +13,7 @@
 *.mov
 *.avi
 !assets/INTRO.mp4
-!assets/video/garlic-mix-zepto.mp4
+!assets/work/video/*.mp4
 
 # Source archives / design deliverables — not web assets
 *.zip
@@ -34,3 +34,23 @@ Desktop.ini
 *.swp
 .vscode/
 .idea/
+
+# ---------------------------------------------------------------------------
+# Raw client-supplied originals (Google Drive exports, ~1GB). The web-ready
+# versions live in assets/work/ — images converted to WebP at 1600px, which
+# cut 275MB down to 12MB. Keep these originals backed up outside the repo.
+# ---------------------------------------------------------------------------
+assets/latest/
+
+# Superseded asset folders — every reference now points at assets/work/.
+# Untracked rather than deleted, so the files stay on disk locally.
+assets/branding/
+assets/e-commerce/
+assets/logos/
+assets/packaging/
+assets/print/
+assets/slider_new/
+assets/social-media/
+assets/trade_events/
+assets/video/
+assets/website/
