@@ -140,10 +140,59 @@ revealTargets.forEach(el => observer.observe(el));
 
 // Our Work — filter pills
 const filterRow = document.getElementById('filterRow');
-const workCards = document.querySelectorAll('.work-card');
+const workGrid = document.getElementById('workGrid');
+const workCards = [...document.querySelectorAll('.work-card')];
 
 const workEmpty = document.getElementById('workEmpty');
 const workEmptyCat = document.getElementById('workEmptyCat');
+
+const workMore = document.getElementById('workMore');
+const workMoreBtn = document.getElementById('workMoreBtn');
+const workMoreLabel = document.getElementById('workMoreLabel');
+const workMoreStatus = document.getElementById('workMoreStatus');
+const workMoreBar = document.getElementById('workMoreBar');
+
+let activeFilter = 'all';
+let workLimit = 0;
+let workExpanded = false; // true once the visitor has loaded more
+
+// Batch size follows the grid's live column count so every batch fills whole
+// rows: 2 rows on desktop/tablet, 3 rows on the 2-column phone layout.
+function workBatchSize() {
+  const cols = getComputedStyle(workGrid).gridTemplateColumns.split(' ').length || 1;
+  return cols * (cols <= 2 ? 3 : 2);
+}
+
+function matchingCards() {
+  return workCards.filter(c => activeFilter === 'all' || c.dataset.cat === activeFilter);
+}
+
+function renderWork() {
+  const matches = matchingCards();
+  workCards.forEach(card => {
+    const idx = matches.indexOf(card);
+    card.classList.toggle('hidden', idx === -1);
+    card.classList.toggle('collapsed', idx >= workLimit);
+  });
+
+  const total = matches.length;
+  const shown = Math.min(workLimit, total);
+  const initial = workBatchSize();
+  workMore.hidden = total <= initial;
+  if (!workMore.hidden) {
+    const allShown = shown >= total;
+    workMoreStatus.innerHTML = `Showing <strong>${shown}</strong> of <strong>${total}</strong> projects`;
+    workMoreBar.style.width = `${(shown / total) * 100}%`;
+    workMoreLabel.textContent = allShown ? 'Show Less' : `Load More (${total - shown})`;
+    workMoreBtn.classList.toggle('is-less', allShown);
+  }
+
+  // Some services don't have published samples yet — show a prompt instead of
+  // an empty grid so the category still leads somewhere useful.
+  if (workEmpty) {
+    workEmpty.hidden = total > 0;
+  }
+}
 
 // Shared so the services mega menu can drive the same filtering. Categories
 // come from one taxonomy: data-filter (pills) === data-cat (cards) ===
@@ -154,21 +203,11 @@ function applyWorkFilter(filter) {
   if (!target) target = [...pills].find(p => p.dataset.filter === 'all');
 
   pills.forEach(p => p.classList.toggle('active', p === target));
-  const active = target.dataset.filter;
-
-  let shown = 0;
-  workCards.forEach(card => {
-    const match = active === 'all' || card.dataset.cat === active;
-    card.classList.toggle('hidden', !match);
-    if (match) shown++;
-  });
-
-  // Some services don't have published samples yet — show a prompt instead of
-  // an empty grid so the category still leads somewhere useful.
-  if (workEmpty) {
-    workEmpty.hidden = shown > 0;
-    if (!shown) workEmptyCat.textContent = target.textContent.trim();
-  }
+  activeFilter = target.dataset.filter;
+  workLimit = workBatchSize();
+  workExpanded = false;
+  if (workEmptyCat) workEmptyCat.textContent = target.textContent.trim();
+  renderWork();
 }
 
 filterRow.addEventListener('click', (e) => {
@@ -177,14 +216,58 @@ filterRow.addEventListener('click', (e) => {
   applyWorkFilter(btn.dataset.filter);
 });
 
-// Our Work — click a card to open its image/video in a full-view lightbox
+workMoreBtn.addEventListener('click', () => {
+  const total = matchingCards().length;
+  if (workLimit >= total) {
+    // Collapse back and return to the top of the grid so the visitor isn't
+    // left stranded far below the section.
+    workLimit = workBatchSize();
+    workExpanded = false;
+    renderWork();
+    filterRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+  const firstNew = matchingCards()[workLimit];
+  workLimit += workBatchSize() * 2;
+  workExpanded = true;
+  renderWork();
+  firstNew?.focus({ preventScroll: true });
+});
+
+// Re-fit the opening rows when the column count changes (rotate / resize),
+// unless the visitor has already expanded the grid.
+let workResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(workResizeTimer);
+  workResizeTimer = setTimeout(() => {
+    if (workExpanded) return;
+    const size = workBatchSize();
+    if (size !== workLimit) { workLimit = size; renderWork(); }
+  }, 150);
+});
+
+applyWorkFilter('all');
+
+// Our Work — click a card to open its image/video in a full-view lightbox,
+// then step through the current category with prev/next, arrow keys or swipe.
 const lightbox = document.getElementById('workLightbox');
 const lightboxBody = document.getElementById('lightboxBody');
 const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxCounter = document.getElementById('lightboxCounter');
 const lightboxClose = document.getElementById('lightboxClose');
-let lightboxTrigger = null;
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+let lightboxItems = [];
+let lightboxIndex = 0;
 
-function openLightbox(card) {
+function cardImageSrc(card) {
+  return card.querySelector('.work-thumb img')?.src;
+}
+
+function showLightboxItem(index) {
+  const count = lightboxItems.length;
+  lightboxIndex = (index + count) % count;
+  const card = lightboxItems[lightboxIndex];
   const img = card.querySelector('.work-thumb img');
   const video = card.querySelector('.work-thumb video');
   const title = card.querySelector('h3')?.textContent || '';
@@ -206,7 +289,24 @@ function openLightbox(card) {
   }
 
   lightboxCaption.innerHTML = `<strong>${title}</strong><span>${cat}</span>`;
-  lightboxTrigger = card;
+  lightboxCounter.textContent = `${lightboxIndex + 1} / ${count}`;
+
+  // Warm the neighbouring images so prev/next feels instant
+  [lightboxIndex - 1, lightboxIndex + 1].forEach(i => {
+    const src = cardImageSrc(lightboxItems[(i + count) % count]);
+    if (src) new Image().src = src;
+  });
+}
+
+function openLightbox(card) {
+  // Navigate everything in the active category, including cards still behind
+  // Load More, so visitors can browse the full set without closing.
+  lightboxItems = matchingCards();
+  const single = lightboxItems.length < 2;
+  lightboxPrev.hidden = single;
+  lightboxNext.hidden = single;
+  lightboxCounter.hidden = single;
+  showLightboxItem(lightboxItems.indexOf(card));
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
   lightboxClose.focus();
@@ -216,7 +316,18 @@ function closeLightbox() {
   lightbox.classList.remove('open');
   lightboxBody.innerHTML = '';
   document.body.style.overflow = '';
-  lightboxTrigger?.focus();
+  const card = lightboxItems[lightboxIndex];
+  if (!card) return;
+  // If the visitor browsed past the loaded rows, reveal up to that card so
+  // focus (and the page position) lands on something visible.
+  if (card.classList.contains('collapsed')) {
+    const batch = workBatchSize();
+    workLimit = Math.ceil((lightboxIndex + 1) / batch) * batch;
+    workExpanded = true;
+    renderWork();
+  }
+  card.focus({ preventScroll: true });
+  card.scrollIntoView({ block: 'nearest' });
 }
 
 workCards.forEach(card => {
@@ -228,10 +339,31 @@ workCards.forEach(card => {
   });
 });
 lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', () => showLightboxItem(lightboxIndex - 1));
+lightboxNext.addEventListener('click', () => showLightboxItem(lightboxIndex + 1));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  else if (lightboxItems.length > 1 && e.key === 'ArrowLeft') showLightboxItem(lightboxIndex - 1);
+  else if (lightboxItems.length > 1 && e.key === 'ArrowRight') showLightboxItem(lightboxIndex + 1);
 });
+
+// Swipe left/right on touch screens
+let touchX = null, touchY = null;
+lightbox.addEventListener('touchstart', (e) => {
+  touchX = e.touches[0].clientX;
+  touchY = e.touches[0].clientY;
+}, { passive: true });
+lightbox.addEventListener('touchend', (e) => {
+  if (touchX === null || lightboxItems.length < 2) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  const dy = e.changedTouches[0].clientY - touchY;
+  touchX = touchY = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+    showLightboxItem(lightboxIndex + (dx < 0 ? 1 : -1));
+  }
+}, { passive: true });
 
 // Footnote-star tooltip — portaled to <body> and positioned from the
 // trigger's live bounding box so it always clears card `overflow: hidden`
